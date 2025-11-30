@@ -3,11 +3,9 @@ class Passeggero:
         self.codice = codice
         self.nome = nome
         self.cognome = cognome
-        self.cabina = None
 
     def __str__(self):
-        stringa = self.cabina.codice if self.cabina else 'Nessuna cabina assenata'
-        return f'{self.codice}: {self.nome} {self.cognome} - Cabina: {stringa}'
+        return f"{self.codice}: {self.nome} {self.cognome}"
 
-    def assegnaCabina(self, cabina):
-        self.cabina = cabina
+    def __eq__(self, other):
+        return isinstance(other, Passeggero) and self.codice == other.codice
